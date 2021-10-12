@@ -8,17 +8,25 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+        {{--  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">  --}}
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
-    <body>
-        <div class="font-sans text-gray-900 antialiased">
-            {{ $slot }}
+
+    <body class="font-sans antialiased">
+        <div class="min-h-screen bg-gray-100">
+                <x-layout.navbar/>
+        
+            <!-- Page Content -->
+            <main>
+                {{ $slot }}
+            </main>
         </div>
     </body>
+
 </html>
