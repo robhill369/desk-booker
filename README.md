@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+<!-- ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
@@ -61,12 +61,42 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT). -->
 
+# Desk Booker 
 
-## Desk Booker
-
-Admin credentials:
+Administrator login credentials:
 
 email: test@test.test
 password: password
+
+<h1>Idea</h1>
+
+A simple web app to allow employees of a business to book their hotdesk for the day.
+
+<h1>Architecture</h1>
+
+Built using Laravel 8 with tailwindCSS styling and AlpineJS components. Utilised Laravel Breeze for Authentication logic.
+
+Routing - ensured that no custom resource actions have been defined; instead creating additional Controllers as necessary. Custom middleware applied for administration purposes
+
+Includes the following features:
+
+- Authentication functionality integrated through Breeze
+
+- Administration-only functionality. Able to create a room and specify desk quantity. Room and associated desk model instances are created in their respective table in the database, written in a single store action.
+
+<h1>Installation</h1>
+
+Laravel Sail used to contain MySQL and PHP. Please get in touch if further instructions are required.
+
+<h1>To-do list</h1>
+
+- Validation of registartion emails against predefined table of employee data.
+- Booking functionality.
+- Clearing a booking 12hrs after submission.
+- Booking days in advance.
+- Manage your own bookings (index, delete).
+- Admin management of bookings (index, delete).
+
+
