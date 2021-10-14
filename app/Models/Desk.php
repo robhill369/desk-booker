@@ -7,5 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Desk extends Model
 {
-    use HasFactory;
+    public function room()
+    {
+        return $this->belongsTo(Room::class);
+    }
 }

@@ -3,7 +3,7 @@
             <x-slot name="tagline">
                 Register to book your hotdesk at  
                 <br/>
-                Office246.
+                <span class="text-blue-500">CompanyName</span>
             </x-slot>
 
             <!-- Validation Errors -->

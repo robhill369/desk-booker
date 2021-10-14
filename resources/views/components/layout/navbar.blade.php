@@ -14,6 +14,13 @@
                             Hello, {{ auth()->user()->name }}.
                         </li>
 
+                        @if (auth()->user()?->email ==="test@test.test")
+                            
+                                <li>
+                                <a class="hover hover:text-white" href="{{ route('create-room') }}">  Create Room</a>
+                                </li>
+                        @endif
+
                         <li>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf

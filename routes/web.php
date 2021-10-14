@@ -26,4 +26,10 @@ Route::get('/', [RoomController::class, 'index']);
 Route::get('book', [BookingController::class, 'create']);
 Route::post('book', [BookingController::class, 'store']);
 
+Route::get('admin/create-room', [RoomController::class, 'create'])
+            ->middleware(['admin'])
+            ->name('create-room');
+Route::post('admin/create-room', [RoomController::class, 'store'])->middleware(['admin']);
+
+
 
