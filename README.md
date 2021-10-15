@@ -86,17 +86,21 @@ Includes the following features:
 
 - Administration-only functionality. Able to create a room and specify desk quantity. Room and associated desk model instances are created in their respective table in the database, written in a single store action.
 
+- Users are able to book a desk through the use of an alpine.js modal confirmation.
+
 <h1>Installation</h1>
 
 Laravel Sail used to contain MySQL and PHP. Please get in touch if further instructions are required.
 
 <h1>To-do list</h1>
 
-- Validation of registartion emails against predefined table of employee data.
-- Booking functionality.
-- Clearing a booking 12hrs after submission.
+- Validation of registration emails against predefined table of employee data.
+- Conditional styling of desk cards based on booking status.
+- Feedback for booking confirmation, and delete functionality.
+- Automatic deletion of a booking 12hrs after submission.
 - Booking days in advance.
 - Manage your own bookings (index, delete).
 - Admin management of bookings (index, delete).
+- Admin management of rooms (index, delete, edit).
 
 

@@ -24,7 +24,9 @@ require __DIR__.'/auth.php';
 Route::get('/', [RoomController::class, 'index']);
 
 Route::get('book', [BookingController::class, 'create']);
-Route::post('book', [BookingController::class, 'store']);
+Route::post('book', [BookingController::class, 'store'])
+            ->middleware(['auth'])
+            ->name('create_booking');
 
 Route::get('admin/create-room', [RoomController::class, 'create'])
             ->middleware(['admin'])

@@ -4,7 +4,8 @@
         <h1 class="font-bold text-6xl text-blue-900 text-center">Welcome to desk booker.</h1>
     
     @auth
-    <h2 class="font-semibold text-2xl mt-5 text-gray-800 text-center">Book your desk at the office today:</h2>
+    <h2 class="font-semibold text-2xl mt-5 text-gray-800 text-center
+    ">Book your desk at the office today:</h2>
     </div>
         <div class="container w-1/2 mx-auto text-center">
             <div class="text-blue-800 font-semibold text-3xl mt-3">
@@ -19,12 +20,14 @@
                                 <div class="mt-2 text-2xl font-semibold text-gray-800 text-left pl-5">
                                     {{ $room->name }}
                                 </div>
-                                <div class="lg:grid lg:grid-cols-5 gap-3 mt-4">
+                                <div class="lg:grid lg:grid-cols-5 gap-5 mt-4">
                                     @foreach ($desks->where('room_id', $room->id) as $desk)
                                             {{-- @if() --}}
                                                 {{-- <x-grid.desks.booked :desk='$desk'>{{ $user->name }}</x-grid.desks.booked> --}}
                                             {{-- @else --}}
-                                                <x-grid.desks.available :desk='$desk'/>
+                                                <div x-data="{show: false}">
+                                                    <x-grid.desks.available :desk='$desk' :room="$room" :user="$user"/>
+                                                </div>
                                             {{-- @endif --}}
                                     @endforeach
                                 </div>

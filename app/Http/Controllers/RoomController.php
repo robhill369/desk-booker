@@ -6,6 +6,7 @@ use App\Models\Desk;
 use App\Models\Room;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use App\Providers\RouteServiceProvider;
 
 
@@ -16,7 +17,8 @@ class RoomController extends Controller
     
             return view('index', [
                 'rooms' => Room::all(),
-                'desks' => Desk::all()
+                'desks' => Desk::all(),
+                'user' => Auth::user()
             ]);
         }
 
