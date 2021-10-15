@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Desk;
 use App\Models\Room;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Providers\RouteServiceProvider;
 
 
@@ -12,7 +13,11 @@ class RoomController extends Controller
 {
     public function index()
         {
-            return view('index');
+    
+            return view('index', [
+                'rooms' => Room::all(),
+                'desks' => Desk::all()
+            ]);
         }
 
     public function create()

@@ -1,4 +1,4 @@
-<nav class="w-full bg-blue-400 shadow-lg flex flex-wrap fixed z-40 top-0 h-20">
+<nav class="w-full relative bg-blue-400 shadow-lg flex flex-wrap fixed z-40 top-0 h-20">
     <div class="container justify-between relative flex items-center my-auto mx-auto w-full">
         <div>
             <a href="/" class="flex items-center text-5xl font-bold text-gray-50">

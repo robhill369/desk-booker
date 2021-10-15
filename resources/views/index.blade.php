@@ -1,74 +1,45 @@
 <x-layout.app>
-        @auth 
-        
-        <div class="container w-full mx-auto pt-40">
-                hello world
+
+    <div class="relative mt-10 mb-5 text-center">
+        <h1 class="font-bold text-6xl  text-blue-800">Welcome to desk booker.</h1>
+    
+
+    @auth
+    <h2 class="font-semibold text-2xl mt-5 text-gray-800">Book your desk at the office today:</h2>
+    </div>
+        <div class="container w-1/2 mx-auto text-center">
+            <div class="text-blue-800 font-semibold text-3xl">
+                {{ date('l jS Y') }}
+            </div>
+            
+            @if ($rooms->count())
+                <div class="grid grid-cols-1 gap-6 mt-5 pb-20">
+                    @foreach ($rooms as $room)
+                        <div class="bg-white h-auto rounded-xl shadow-inner">
+                            <div class="mx-3 my-4">
+                                <div class="mt-2 text-2xl font-semibold text-gray-800 text-left pl-5">
+                                    {{ $room->name }}
+                                </div>
+                                <div class="lg:grid lg:grid-cols-5 gap-3 mt-4">
+                                    @foreach ($desks->where('room_id', $room->id) as $desk)
+                                            {{-- @if() --}}
+                                                {{-- <x-grid.desks.booked :desk='$desk'>{{ $user->name }}</x-grid.desks.booked> --}}
+                                            {{-- @else --}}
+                                                <x-grid.desks.available :desk='$desk'/>
+                                            {{-- @endif --}}
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            @else
+                <p class="text-center">No bookings available yet. Please check back later!</p>
+            @endif
+
         </div>
-        
-        @else
-         <x-auth.auth-card>
-                <x-slot name="tagline">
-                        Register to book your hotdesk at  
-                        <br/>
-                        <span class="text-blue-500">CompanyName</span>
-                </x-slot>
-    
-                <!-- Validation Errors -->
-                <x-auth.auth-validation-errors class="mb-4" :errors="$errors" />
-    
-                <form method="POST" action="{{ route('register') }}">
-                    @csrf
-    
-                    <!-- Name -->
-                    <div>
-                        <x-auth.label for="name" :value="__('Name')" />
-    
-                        <x-auth.input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
-                    </div>
-    
-                    <!-- Job Title -->
-                    <div class="mt-4">
-                        <x-auth.label for="job_title" :value="__('Job Title')" />
-    
-                        <x-auth.input id="job_title" class="block mt-1 w-full" type="text" name="job_title" :value="old('job_title')" required autofocus />
-                    </div>
-    
-                    <!-- Email Address -->
-                    <div class="mt-4">
-                        <x-auth.label for="email" :value="__('Email')" />
-    
-                        <x-auth.input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
-                    </div>
-    
-                    <!-- Password -->
-                    <div class="mt-4">
-                        <x-auth.label for="password" :value="__('Password')" />
-    
-                        <x-auth.input id="password" class="block mt-1 w-full"
-                                        type="password"
-                                        name="password"
-                                        required autocomplete="new-password" />
-                    </div>
-    
-                    <!-- Confirm Password -->
-                    <div class="mt-4">
-                        <x-auth.label for="password_confirmation" :value="__('Confirm Password')" />
-    
-                        <x-auth.input id="password_confirmation" class="block mt-1 w-full"
-                                        type="password"
-                                        name="password_confirmation" required />
-                    </div>
-    
-                    <div class="flex items-center justify-end mt-4">
-                        <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                            {{ __('Already registered?') }}
-                        </a>
-    
-                        <x-auth.button class="ml-4">
-                            {{ __('Register') }}
-                        </x-auth.button>
-                    </div>
-                </form>
-            </x-auth.auth-card>
-        @endauth
-        </x-layout.app>
+
+    @else
+        <x-auth.register-card />
+    @endauth
+</x-layout.app>
