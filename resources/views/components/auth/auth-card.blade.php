@@ -1,4 +1,4 @@
-<div class="min-h-screen flex flex-col mt-10 items-center sm:pt-0">
+<div class="min-h-screen flex flex-col mt-20 items-center sm:pt-0">
     <div>
         <h1 class="font-bold text-4xl text-gray-800 mb-8 text-center">
             {{ $tagline }}

@@ -6,7 +6,7 @@
     
     <x-auth.auth-card>
             <x-slot name="tagline">
-                Register to book your hotdesk at  
+                Register to book your desk at  
                 <br/>
                 <span class="text-blue-500">CompanyName</span>
             </x-slot>

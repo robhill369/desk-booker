@@ -1,10 +1,10 @@
 <x-layout.app>
 
-    <div class="relative mt-10 text-center">
-        <h1 class="font-bold text-6xl text-blue-900">Welcome to desk booker.</h1>
+    <div class="relative mt-10">
+        <h1 class="font-bold text-6xl text-blue-900 text-center">Welcome to desk booker.</h1>
     
     @auth
-    <h2 class="font-semibold text-2xl mt-5 text-gray-800">Book your desk at the office today:</h2>
+    <h2 class="font-semibold text-2xl mt-5 text-gray-800 text-center">Book your desk at the office today:</h2>
     </div>
         <div class="container w-1/2 mx-auto text-center">
             <div class="text-blue-800 font-semibold text-3xl mt-3">
