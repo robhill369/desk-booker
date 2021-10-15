@@ -1,7 +1,14 @@
 <x-layout.app>
-        <x-auth.auth-card>
+    
+    <div class="relative mt-10 text-center">
+        <h1 class="font-bold text-6xl text-blue-900">Welcome to desk booker.</h1>
+    </div>
+    
+    <x-auth.auth-card>
             <x-slot name="tagline">
-                Log in to book your hotdesk.
+                Log in to book your desk at
+                <br/>
+                <span class="text-blue-500">CompanyName</span>
             </x-slot>
             <!-- Session Status -->
             <x-auth.auth-session-status class="mb-4" :status="session('status')" />

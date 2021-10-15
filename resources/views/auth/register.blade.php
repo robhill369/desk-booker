@@ -1,5 +1,10 @@
 <x-layout.app>
-        <x-auth.auth-card>
+        
+    <div class="relative mt-10 text-center">
+        <h1 class="font-bold text-6xl text-blue-900">Welcome to desk booker.</h1>
+    </div>
+    
+    <x-auth.auth-card>
             <x-slot name="tagline">
                 Register to book your hotdesk at  
                 <br/>
