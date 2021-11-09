@@ -11,4 +11,9 @@ class Desk extends Model
     {
         return $this->belongsTo(Room::class);
     }
+
+    public function booking()
+    {
+        return $this->hasOne(Booking::class);
+    }
 }

@@ -11,7 +11,6 @@ class BookingController extends Controller
 {
     public function store(Request $request)
     {
-    
         $booking = new Booking();
         $booking->room_id = $request->room_id;
         $booking->desk_id = $request->desk_id;
@@ -20,4 +19,7 @@ class BookingController extends Controller
 
         return redirect(RouteServiceProvider::HOME);
     }
+
+
+    
 }

@@ -1,5 +1,5 @@
-<button @click="show = !show">
-<div class="rounded-lg w-40 hover hover:bg-blue-500 hover:text-white transition duration-150 ease-in-out shadow-md bg-blue-200 text-center h-16" >
+<button @click="show = !show" class='w-full'>
+<div class="rounded-lg hover hover:bg-blue-500 hover:text-white transition duration-150 ease-in-out shadow-md bg-blue-200 text-center h-16" >
     <div class="pt-1.5 text-lg font-medium">
         Desk {{ $desk->id }}
     </div>

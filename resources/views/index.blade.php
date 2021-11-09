@@ -2,16 +2,16 @@
 
     <div class="relative mt-10">
         <h1 class="font-bold text-6xl text-blue-900 text-center">Welcome to desk booker.</h1>
-    
-    @auth
-    <h2 class="font-semibold text-2xl mt-5 text-gray-800 text-center
-    ">Book your desk at the office today:</h2>
-    </div>
+
+        @auth
+            <h2 class="font-semibold text-2xl mt-5 text-gray-800 text-center">
+                Book your desk at the office today:</h2>
+        </div>
         <div class="container w-1/2 mx-auto text-center">
             <div class="text-blue-800 font-semibold text-3xl mt-3">
                 {{ date('l jS Y') }}
             </div>
-            
+
             @if ($rooms->count())
                 <div class="grid grid-cols-1 gap-6 mt-5 pb-20">
                     @foreach ($rooms as $room)
@@ -21,14 +21,22 @@
                                     {{ $room->name }}
                                 </div>
                                 <div class="lg:grid lg:grid-cols-5 gap-5 mt-4">
-                                    @foreach ($desks->where('room_id', $room->id) as $desk)
-                                            {{-- @if() --}}
-                                                {{-- <x-grid.desks.booked :desk='$desk'>{{ $user->name }}</x-grid.desks.booked> --}}
-                                            {{-- @else --}}
+                                    @foreach ($room->desks as $desk)
+                                        @if ($desk->booking)
+                                            @if ($desk->booking->user_id === $user->id)
+                                                <x-grid.desks.my-booking :desk='$desk' />
+                                            @else
+                                                <x-grid.desks.booked :desk='$desk' />
+                                            @endif
+                                        @else
+                                            @if ($user->booking)
+                                                <x-grid.desks.unavailable :desk='$desk' />
+                                            @else
                                                 <div x-data="{show: false}">
-                                                    <x-grid.desks.available :desk='$desk' :room="$room" :user="$user"/>
+                                                    <x-grid.desks.available :desk='$desk' :room='$room' :user='$user'/>
                                                 </div>
-                                            {{-- @endif --}}
+                                            @endif
+                                        @endif
                                     @endforeach
                                 </div>
                             </div>
@@ -38,9 +46,7 @@
             @else
                 <p class="text-center text-xl mt-10">No bookings available yet. Please check back later!</p>
             @endif
-
         </div>
-
     @else
         <x-auth.register-card />
     @endauth

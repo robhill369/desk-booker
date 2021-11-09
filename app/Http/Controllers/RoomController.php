@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Desk;
 use App\Models\Room;
+use App\Models\User;
+use App\Models\Booking;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -14,11 +16,10 @@ class RoomController extends Controller
 {
     public function index()
         {
-    
             return view('index', [
-                'rooms' => Room::all(),
-                'desks' => Desk::all(),
-                'user' => Auth::user()
+                'rooms' => Room::with("desks", 'desks.booking')->get(),
+                'user' => Auth::user(),
+                // 'booking' => Booking::with("users", 'users.booking')->get()
             ]);
         }
 
